@@ -9,22 +9,39 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'nfcFilters'])
 //
 .controller('QRCtrl', function($scope, $cordovaBarcodeScanner, Scan) {
 	
-	$cordovaBarcodeScanner.scan().then(function(imageData) {
-		alert(imageData.text);
-		console.log("Barcode Format -> " + imageData.format);
-		console.log("Cancelled -> " + imageData.cancelled);
+	var readQR = function() {
+		$cordovaBarcodeScanner.scan().then(function(imageData) {
+			alert(imageData.text);
+			console.log("Barcode Format -> " + imageData.format);
+			console.log("Cancelled -> " + imageData.cancelled);
 	
-		$scope.settings = {
-		    url: 		imageData.text,
-			format: 	imageData.format,
-			cancelled: 	imageData.cancelled
-		}
+			$scope.settings = {
+			    url: 		imageData.text,
+				format: 	imageData.format,
+				cancelled: 	imageData.cancelled
+			}
 		
-		var now = moment().format()
-		Scan.set(imageData.text, imageData.format, imageData.cancelled, now)
+			var now = moment().format()
+			Scan.set(imageData.text, imageData.format, imageData.cancelled, now)
 		
-	}, function(error) {
-		console.log("An error happened -> " + error);
+		}, function(error) {
+			console.log("An error happened -> " + error);
+		});
+	}
+	
+	//
+	// Enter NFC Write View
+	//
+	$scope.$on('$ionicView.enter', function(){
+		console.log("enter readQR...");
+		readQR();
+	});
+	
+	//
+	// Leave NFC Write View
+	//
+	$scope.$on('$ionicView.leave', function(){
+		console.log("leave readQR...");
 	});
 })
 
