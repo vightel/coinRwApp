@@ -1,0 +1,49 @@
+<ion-view view-title="NFC Tag Reader">
+  <ion-content>
+    <h2>NFC Reader:</h2>
+	<div ng-if="!tag.id">
+        <div class="card">
+            <div class="item item-text-wrap center">
+                Scan a tag to read.
+            </div>
+        </div>
+	</div>
+    <div ng-if="tag.id">
+        <div class="card">
+            <div class="item item-text-wrap">
+                <dl>
+					<dt>{{settings.date}}</dt>
+                    <dt>Tag Id</dt>
+                    <dd>{{ tag.id | bytesToHexString }}</dd>
+                    <dt>Tag Type</dt>
+                    <dd>{{ tag.type }}</dd>
+                    <!-- TODO techTypes -->
+                    <dt>Max Size</dt>
+                    <dd>{{ tag.maxSize }} bytes</dd>
+                    <dt>Is Writable</dt>
+                    <dd>{{ tag.isWritable }}</dd>
+                    <dt>Can Make Read Only</dt>
+                    <dd>{{ tag.canMakeReadOnly }}</dd>
+                </dl>
+                <div class="card" ng-repeat="record in tag.ndefMessage">
+                    <div class="item item-divider">
+                        Record {{$index + 1}} <br/>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <dl>
+                            <dt>TNF</dt>
+                            <dd>{{ record.tnf | tnfToString }}</dd>
+                            <dt>Record Type</dt>
+                            <dd>{{ record.type | bytesToString }}</dd>
+                            <dt ng-if="record.id">Record Id</dt>
+                            <dd ng-if="record.id">{{ record.id | bytesToString }}</dd>
+                            <dt>Payload</dt>
+                            <dd>{{ record | decodePayload }}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+  </ion-content>
+</ion-view>

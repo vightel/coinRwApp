@@ -1,0 +1,32 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-divider">QR Reads</div>
+      <div class="item item-body">
+        <div>
+          {{result.read_count}} reads <br/>
+		  Last read at: {{result.last_read}}
+        </div>
+      </div>
+    </div>
+	
+    <div class="list card">
+      <div class="item item-divider">NFC Writes</div>
+      <div class="item item-body">
+        <div>
+          {{result.write_count}} writes <br/>
+		  Last write at: {{result.last_write}}
+        </div>
+      </div>
+    </div>
+	
+    <div class="list card">
+      <div class="item item-divider">Last QR Code</div>
+      <div class="item item-body">
+        <div>
+			{{result.url}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
