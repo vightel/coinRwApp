@@ -22,9 +22,8 @@ On your local machine, start Chrome and go to: chrome://inspect
 
 # Credits:
 
-[Ionic Framework](http://ionicframework.com/)
-
-https://github.com/chariotsolutions/phonegap-nfc
-http://chariotsolutions.com/blog/post/read-and-write-nfc-tags-with-phonegap-2/
-https://blog.nraboy.com/2014/09/implement-barcode-scanner-using-ionic-framework/
-http://junerockwell.com/how-to-run-ionic-on-real-devices/
+* [Ionic Framework](http://ionicframework.com/)
+* [phonegap-nfc](https://github.com/chariotsolutions/phonegap-nfc)
+* [read-and-write-nfc-tags-with-phonegap-2](http://chariotsolutions.com/blog/post/read-and-write-nfc-tags-with-phonegap-2/)
+* [implement-barcode-scanner-using-ionic-framework](https://blog.nraboy.com/2014/09/implement-barcode-scanner-using-ionic-framework/)
+* [how-to-run-ionic-on-real-devices](http://junerockwell.com/how-to-run-ionic-on-real-devices/)
